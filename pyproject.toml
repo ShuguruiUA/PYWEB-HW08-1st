@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pyweb-m08"
+version = "0.1.0"
+description = ""
+authors = ["shuguruiua <popov.yk@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pymongo = {extras = ["srv", "tls"], version = "^4.6.1"}
+mongoengine = "^0.27.0"
+pip = "^24.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
