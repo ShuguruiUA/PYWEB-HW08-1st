@@ -10,6 +10,8 @@ python = "^3.11"
 pymongo = {extras = ["srv", "tls"], version = "^4.6.1"}
 mongoengine = "^0.27.0"
 pip = "^24.0"
+redis = "^5.0.1"
+redis-lru = "^0.1.2"
 
 
 [build-system]
