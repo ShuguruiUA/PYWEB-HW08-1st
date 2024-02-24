@@ -4,6 +4,12 @@ from mongoengine.errors import NotUniqueError
 
 from models import Author, Quote
 
+"""
+Скрипт за допомогою JSON зчитує файли та за допомогою моделей заповнює базу даних із кодуванням 'utf-8'.
+"""
+
+
+
 if __name__ == '__main__':
     with open('authors.json', encoding='utf-8') as file:
         data = json.load(file)

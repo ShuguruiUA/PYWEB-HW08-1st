@@ -14,9 +14,10 @@ domain = config.get('DB', 'domain')
 
 connect(host=f"""mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/{db_name}?retryWrites=true&w=majority""", ssl=True)
 
+# Створюємо моделі для бази за допомогою mongoengine
 
 class Author(Document):
-    fullname = StringField(max_length=120, required=True)
+    fullname = StringField(max_length=120, required=True, unique=True)
     born_date = StringField(max_length=30)
     born_location = StringField(max_length=180)
     description = StringField()
@@ -29,6 +30,7 @@ class Quote(Document):
     quote = StringField()
     meta = {"collection": "quotes"}
 
+# для коректного повернення імені автора перевизначаємо метод to_json
     def to_json(self, *args, **kwargs):
         data = self.to_mongo(*args, **kwargs)
         data["author"] = self.author.fullname
